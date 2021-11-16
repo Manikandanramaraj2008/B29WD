@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        
+      //  Country name print from API by Card
+        var title =document.createElement("h1");
+        title.style.color ="white";         
+        title.style.backgroundColor ="rgb(250,150,150)";
+        title.style.margin = "10px 10px 10px 10px";
+        title.style.textAlign ="center";
+        title.style.width ="1700px";    // width changed
+        title.innerText = "Countries Flags by Box Method";
+        document.body.appendChild(title);
+
+        var myPage =document.createElement("div");
+        myPage.style.display = "flex";
+        myPage.style.flexdirection ="row";
+        myPage.style.width ="1700px";            // width changed
+        myPage.style.flexWrap ="wrap";
+        myPage.style.backgroundColor ="rgb(5,165,165)";
+        myPage.style.border = "10px";
+
+        fetch("https://restcountries.com/v3.1/all")
+        .then(function(data)
+        {
+            return data.json();
+        })
+        .then(function(dataObj)
+        {
+           // var count = (dataObj.length)-1;
+            for(var item = 0; item<((dataObj.length)-1); item++)
+            {
+                var indCard = document.createElement("div");
+                indCard.style.display = "grid";
+                indCard.style.gridAutoRows = "auto";
+               // indCard.style.height = "300px";
+                indCard.style.width = "30%";
+                indCard.style.margin = "30px 3px 3px 30px";
+                indCard.style.backgroundColor = "rgb(0,150,120)";
+
+                var img = document.createElement('img');
+                img.src = dataObj[item].flags.png;
+               // img.height = "150";   not required
+                img.width = "400";
+                img.style.margin = "50px 5px 5px 50px";
+                indCard.appendChild(img);
+
+                var country = document.createElement("h2");
+                country.innerHTML = JSON.stringify(dataObj[item].name.common);
+                country.style.display = "inline-text";
+              //  country.innerText.textAlign = "center"; removed
+                country.style.textAlign = "center";
+                country.style.color = "white";
+                country.style.paddingTop = "10px"; 
+                country.paddingLeft = "10px";
+                indCard.appendChild(country);
+            
+
+                var Code = document.createElement("h3");
+                Code.innerHTML = JSON.stringify(dataObj[item].cca2);
+                Code.style.display = "inline-text";
+               // Code.innerText.textAlign = "right";
+                Code.style.textAlign = "right";
+                Code.style.color = "white";
+                Code.style.paddingTop = "10px";
+                Code.paddingLeft = "10px";
+                indCard.appendChild(Code);
+                myPage.appendChild(indCard)
+            }
+            document.body.appendChild(myPage);
+        })
+        .catch(function(err){console.log(err)})
+    </script>
+</body>
+</html>
