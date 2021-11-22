@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+   <script> 
+//    console.log("1 app start")
+//    setTimeout(function(){
+//     console.log("2 app start");
+//    },8000)
+
+//    setTimeout(function(){
+//     console.log("3 app start");
+//    },2000)
+
+//    setTimeout(function(){
+//     console.log("4 app start");
+//    },5000)
+
+//    console.log("5 app end")
+
+// function execute(val1,val2)
+// {
+//     setTimeout(function(){
+//         var result = val1 + val2
+//         return result
+//     },5000)
+
+// }
+
+// var result = excute(10,5) /* result is  not defined due to code blocking
+
+function execute(val1,val2,cb) *
+ {
+   setTimeout(function()
+   {
+        var result = val1 + val2
+       cb(result)
+    },5000)
+}
+
+  excute(10,5,function(result) {
+
+    console.log(result)
+
+  })
+
+</script>  
+    
+</body>
+</html>

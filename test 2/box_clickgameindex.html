@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var currentPlayer = "x"
+        var board = document.createElement("div");
+        board.style.width ="300px";
+        board.style.display ="flex"
+        board.style.flexWrap ="wrap";
+        board.style.flexDirection ="row";
+       // board.style.height = "400px"
+
+       for(let i=1;i<=9; i++)
+       var box =document.createElement("div")
+       box.style.width ="100px"
+       box.style.height = "200px"
+        box.style.background = "yellow"
+        box.style.margin ="2px"
+        box.style.border = "1px solid red"
+
+        box.setAttribute("id",index);
+        box.addEventListener('click',function()
+        {
+            console.log(typeof this.innerText)
+         if (this.innerText!=="")
+         {
+               
+            if(currentPlayer =="x")
+             {
+                this.innerText = currentPlayer;
+                currentPlayer ="o"
+
+             }else
+              {   
+                this.innerText=currentPlayer;
+                currentPlayer ="x"
+              }
+            
+          }
+       
+        })
+        board.appendChild(box)
+      }
+
+    
+    document.body.appendChild(board)
+
+
+
+
+
+    </script>
+</body>
+</html>
